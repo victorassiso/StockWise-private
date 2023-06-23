@@ -1,0 +1,26 @@
+{
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "zod": "^3.21.4"
+  },
+  "name": "stockwise",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch src/server.js",
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/victorassiso/StockWise-private.git"
+  },
+  "author": "Victor Assis de Oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorassiso/StockWise-private/issues"
+  },
+  "homepage": "https://github.com/victorassiso/StockWise-private#readme",
+  "description": ""
+}
