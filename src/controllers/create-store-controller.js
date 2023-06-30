@@ -11,7 +11,7 @@ export async function createStoreController(req, res) {
   const { name, address, phone } = storeSchema.parse(req.body);
 
   const createStoreUseCase = new makeCreateStoreUseCase();
-  console.log({ name, address, phone });
+
   const store = await createStoreUseCase.execute({ name, address, phone });
   return res.status(200).send(store);
 }

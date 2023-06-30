@@ -4,7 +4,6 @@ export class PrismaStoresRepository {
     const store = await prisma.store.create({
       data,
     });
-
     return store;
   }
 

@@ -25,6 +25,8 @@
   "homepage": "https://github.com/victorassiso/StockWise-private#readme",
   "description": "",
   "devDependencies": {
-    "prisma": "^4.16.1"
+    "axios": "^1.4.0",
+    "prisma": "^4.16.1",
+    "vitest": "^0.32.2"
   }
 }
