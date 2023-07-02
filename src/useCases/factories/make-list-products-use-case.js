@@ -3,7 +3,7 @@ import { ListProductsUseCase } from "../list-products-use-case.js";
 
 export function makeListProductsUseCase() {
   const productsRepository = new PrismaProductsRepository();
-  const listProductsUseCases = new ListProductsUseCase(productsRepository);
+  const listProductsUseCase = new ListProductsUseCase(productsRepository);
 
-  return listProductsUseCases;
+  return listProductsUseCase;
 }

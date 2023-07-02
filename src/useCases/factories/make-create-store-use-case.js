@@ -7,11 +7,11 @@ export function makeCreateStoreUseCase() {
   const storesRepository = new PrismaStoresRepository();
   const inventoriesRepository = new PrismaInventoriesRepository();
   const productsRepository = new PrismaProductsRepository();
-  const createStoreUseCases = new CreateStoreUseCase(
+  const createStoreUseCase = new CreateStoreUseCase(
     storesRepository,
     productsRepository,
     inventoriesRepository
   );
 
-  return createStoreUseCases;
+  return createStoreUseCase;
 }
