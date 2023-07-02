@@ -11,4 +11,14 @@ export class PrismaStoresRepository {
     const stores = await prisma.store.findMany();
     return stores;
   }
+
+  async findByName(name) {
+    const store = await prisma.store.findUnique({
+      where: {
+        name,
+      },
+    });
+
+    return store;
+  }
 }
