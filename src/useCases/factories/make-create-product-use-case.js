@@ -6,11 +6,11 @@ import { CreateProductUseCase } from "../create-product-use-case.js";
 export function makeCreateProductUseCase() {
   const productsRepository = new PrismaProductsRepository();
   const storesRepository = new PrismaStoresRepository();
-  const InventoriesRepository = new PrismaInventoriesRepository();
+  const inventoriesRepository = new PrismaInventoriesRepository();
   const createProductUseCase = new CreateProductUseCase(
     productsRepository,
     storesRepository,
-    InventoriesRepository
+    inventoriesRepository
   );
 
   return createProductUseCase;

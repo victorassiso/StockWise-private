@@ -4,13 +4,23 @@ import { CreateStoreUseCase } from "../useCases/create-store-use-case";
 import { ListStoresUseCase } from "../useCases/list-stores-use-case";
 
 let storesRepository;
+let productsRepository;
+let inventoriesRepository;
+
 let createStoreUseCase;
 let listStoresUseCase;
 
-describe("Store Use Cases", () => {
+describe("List Stores Use Case", () => {
   beforeEach(() => {
     storesRepository = new InMemoryStoresRepository();
-    createStoreUseCase = new CreateStoreUseCase(storesRepository);
+    productsRepository = new InMemoryStoresRepository();
+    inventoriesRepository = new InMemoryStoresRepository();
+
+    createStoreUseCase = new CreateStoreUseCase(
+      storesRepository,
+      productsRepository,
+      inventoriesRepository
+    );
     listStoresUseCase = new ListStoresUseCase(storesRepository);
   });
 
