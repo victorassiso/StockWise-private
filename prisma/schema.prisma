@@ -11,25 +11,27 @@ datasource db {
 }
 
 model Store {
-  id         String   @id @default(uuid())
-  name       String   @unique
-  address    String
-  phone      String
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  id          String      @id @default(uuid())
+  name        String      @unique
+  address     String
+  phone       String
+  created_at  DateTime    @default(now())
+  updated_at  DateTime    @updatedAt
+  inventories Inventory[]
 
   @@map("stores")
 }
 
 model Product {
-  id         String        @id @default(uuid())
-  name       String        @unique
-  price      Float
-  cost       Float
-  status     ProductStatus @default(inactive)
-  category   String
-  created_at DateTime      @default(now())
-  updated_at DateTime      @updatedAt
+  id          String        @id @default(uuid())
+  name        String        @unique
+  price       Float
+  cost        Float
+  status      ProductStatus @default(inactive)
+  category    String
+  created_at  DateTime      @default(now())
+  updated_at  DateTime      @updatedAt
+  inventories Inventory[]
 
   @@map("products")
 }
@@ -37,4 +39,17 @@ model Product {
 enum ProductStatus {
   active
   inactive
+}
+
+model Inventory {
+  id         String   @id @default(uuid())
+  store_id   String
+  store      Store    @relation(fields: [store_id], references: [id])
+  product_id String
+  product    Product  @relation(fields: [product_id], references: [id])
+  balance    Int      @default(0)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("inventories")
 }
