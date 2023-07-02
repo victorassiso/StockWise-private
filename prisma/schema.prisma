@@ -20,3 +20,21 @@ model Store {
 
   @@map("stores")
 }
+
+model Product {
+  id         String        @id @default(uuid())
+  name       String        @unique
+  price      Float
+  cost       Float
+  status     ProductStatus @default(inactive)
+  category   String
+  created_at DateTime      @default(now())
+  updated_at DateTime      @updatedAt
+
+  @@map("products")
+}
+
+enum ProductStatus {
+  active
+  inactive
+}
