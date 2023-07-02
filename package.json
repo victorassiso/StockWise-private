@@ -12,7 +12,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node --watch src/server.js",
-    "test": "vitest"
+    "test": "vitest run",
+    "test:w": "vitest",
+    "test:c": "vitest --coverage"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
   "homepage": "https://github.com/victorassiso/StockWise-private#readme",
   "description": "",
   "devDependencies": {
+    "@vitest/coverage-v8": "^0.32.2",
     "axios": "^1.4.0",
     "prisma": "^4.16.1",
     "vitest": "^0.32.2"
