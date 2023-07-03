@@ -5,6 +5,7 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
 import {
   AddProduct,
+  AddStore,
   Checkout,
   Inventories,
   InventoryDetails,
@@ -15,11 +16,13 @@ import {
   StoreDetails,
   Stores,
 } from "./pages";
+import { useStateContext } from "./contexts/contextProvider";
 
 import "./App.css";
 
 const App = () => {
-  const activeMenu = true;
+  const { activeMenu } = useStateContext();
+
   return (
     <div>
       <BrowserRouter>
@@ -74,6 +77,7 @@ const App = () => {
               <Route path="/product-details" element={<ProductDetails />} />
               <Route path="/add-product" element={<AddProduct />} />
               <Route path="/stores" element={<Stores />} />
+              <Route path="/add-stores" element={<Stores />} />
               <Route path="/store-details" element={<StoreDetails />} />
               <Route path="/inventories" element={<Inventories />} />
               <Route path="/inventory-details" element={<InventoryDetails />} />

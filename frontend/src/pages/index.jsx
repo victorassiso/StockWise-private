@@ -8,3 +8,4 @@ export { default as ProductDetails } from "./ProductDetails";
 export { default as Products } from "./Products";
 export { default as StoreDetails } from "./StoreDetails";
 export { default as Stores } from "./Stores";
+export { default as AddStore } from "./AddStore";
