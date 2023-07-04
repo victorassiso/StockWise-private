@@ -420,9 +420,32 @@ export const LinePrimaryYAxis = {
   minorTickLines: { width: 0 },
 };
 
+export const productsGrid = [
+  { type: "checkbox", width: "50" },
+  {
+    field: "name",
+    headerText: "Name",
+    width: "150",
+    textAlign: "Left",
+  },
+  {
+    field: "price",
+    headerText: "Price",
+    width: "100",
+    textAlign: "Center",
+  },
+  {
+    field: "cost",
+    headerText: "Cost",
+    width: "100",
+    textAlign: "Center",
+  },
+];
+
 export const customersGrid = [
   { type: "checkbox", width: "50" },
   {
+    field: "Name",
     headerText: "Name",
     width: "150",
     template: customerGridImage,

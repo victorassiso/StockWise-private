@@ -7,6 +7,7 @@ import {
   AddProduct,
   AddStore,
   Checkout,
+  Dashboard,
   Inventories,
   InventoryDetails,
   InvoiceDetails,
@@ -17,7 +18,6 @@ import {
   Stores,
 } from "./pages";
 import { useStateContext } from "./contexts/contextProvider";
-
 import "./App.css";
 
 const App = () => {
@@ -34,7 +34,7 @@ const App = () => {
                 type="button"
                 className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white"
                 style={{
-                  background: "blue",
+                  background: "#ed7d31",
                   borderRadius: "50%",
                 }}
               >
@@ -54,37 +54,41 @@ const App = () => {
             </div>
           )}
 
-          {/* Navbar */}
+          {/* Nav + Main */}
           <div
             className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${
               activeMenu ? "md:ml-72" : "flex-2"
             }`}
           >
+            {/* Navbar */}
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
               <Navbar />
             </div>
-          </div>
 
-          {/* main */}
-          <div>
-            <Routes>
-              {/* Dashboard */}
-              <Route path="/" element="Dashboard" />
-              <Route path="/dashboard" element="Dashboard" />
+            {/* main */}
+            <div>
+              <Routes>
+                {/* Dashboard */}
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/dashboard" element={<Dashboard />} />
 
-              {/* Pages */}
-              <Route path="/products" element={<Products />} />
-              <Route path="/product-details" element={<ProductDetails />} />
-              <Route path="/add-product" element={<AddProduct />} />
-              <Route path="/stores" element={<Stores />} />
-              <Route path="/add-stores" element={<Stores />} />
-              <Route path="/store-details" element={<StoreDetails />} />
-              <Route path="/inventories" element={<Inventories />} />
-              <Route path="/inventory-details" element={<InventoryDetails />} />
-              <Route path="/checkout" element={<Checkout />} />
-              <Route path="/invoices" element={<Invoices />} />
-              <Route path="/invoice-details" element={<InvoiceDetails />} />
-            </Routes>
+                {/* Pages */}
+                <Route path="/products" element={<Products />} />
+                <Route path="/product-details" element={<ProductDetails />} />
+                <Route path="/add-product" element={<AddProduct />} />
+                <Route path="/stores" element={<Stores />} />
+                <Route path="/add-stores" element={<Stores />} />
+                <Route path="/store-details" element={<StoreDetails />} />
+                <Route path="/inventories" element={<Inventories />} />
+                <Route
+                  path="/inventory-details"
+                  element={<InventoryDetails />}
+                />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/invoices" element={<Invoices />} />
+                <Route path="/invoice-details" element={<InvoiceDetails />} />
+              </Routes>
+            </div>
           </div>
         </div>
       </BrowserRouter>

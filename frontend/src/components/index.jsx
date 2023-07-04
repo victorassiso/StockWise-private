@@ -6,3 +6,4 @@ export { default as Footer } from "./Footer";
 export { default as UserProfile } from "./UserProfile";
 export { default as PagesHeader } from "./PagesHeader";
 export { default as Header } from "./Header";
+export { default as Table } from "./Table";

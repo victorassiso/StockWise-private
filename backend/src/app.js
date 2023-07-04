@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import { storeRouter } from "./routes/store-router.js";
 import { errorHandler } from "./middlewares/error-handler.js";
 import { productRouter } from "./routes/product-router.js";
@@ -6,6 +7,7 @@ import { productRouter } from "./routes/product-router.js";
 export const app = express();
 
 // Configs
+app.use(cors());
 app.use(express.json());
 
 // Routes
