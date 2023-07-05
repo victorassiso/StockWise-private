@@ -38,4 +38,14 @@ export class PrismaStoresRepository {
     });
     return store;
   }
+
+  async update(id, data) {
+    const store = await prisma.store.update({
+      where: {
+        id,
+      },
+      data,
+    });
+    return store;
+  }
 }

@@ -13,8 +13,8 @@ datasource db {
 model Store {
   id          String      @id @default(uuid())
   name        String      @unique
-  address     String
-  phone       String
+  address     String?
+  phone       String?
   created_at  DateTime    @default(now())
   updated_at  DateTime    @updatedAt
   inventories Inventory[]

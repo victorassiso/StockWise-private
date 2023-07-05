@@ -67,6 +67,7 @@ const App = () => {
 
             {/* main */}
             <div>
+              <ThemeSettings />
               <Routes>
                 {/* Dashboard */}
                 <Route path="/" element={<Dashboard />} />

@@ -1,50 +1,65 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Header, Table } from "../components";
 import { columns, tableServices, gridAttributes } from "./customization/Stores";
 import { api } from "../services/hooks/axios";
 import { useQuery } from "react-query";
-import { queryClient } from "../services/queryClient";
 
 const Stores = () => {
   // Data
   const [stores, setStores] = useState(null);
-  const { data, isFetching, refetch } = useQuery(
+  const { isFetching, refetch } = useQuery(
     "Stores",
     async () => {
       const res = await api.get("/stores");
       setStores(res.data.stores);
     },
-    {}
+    {
+      refetchOnWindowFocus: false,
+    }
   );
-  // const [data, setData] = useState(null);
-  // const [isFetching, setIsFetching] = useState(true);
-
-  // useEffect(() => {
-  //   api
-  //     .get("/stores")
-  //     .then((res) => {
-  //       console.log(res);
-  //       setData(res.data.stores);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     })
-  //     .finally(() => {
-  //       setIsFetching(false);
-  //     });
-  // }, []);
 
   // Functions
   async function handleChange(props) {
+    console.log(props);
     if (props.batchChanges.addedRecords.length > 0) {
-      await handleAddRecord(props.batchChanges.addedRecords);
+      await handleAddRecords(props.batchChanges.addedRecords);
     }
+    if (props.batchChanges.deletedRecords.length > 0) {
+      await handleDeleteRecords(props.batchChanges.deletedRecords);
+    }
+    if (props.batchChanges.changedRecords.length > 0) {
+      await handleUpdateRecords(props.batchChanges.changedRecords);
+    }
+    refetch();
   }
-  async function handleAddRecord(records) {
+
+  async function handleAddRecords(records) {
     for (let i = 0; i < records.length; i++) {
       console.log(records[i]);
-      await api.post("/stores", records[i]).then((res) => {});
-      refetch();
+      await api.post("/stores", records[i]).then((res) => {
+        console.log(res);
+      });
+    }
+  }
+
+  async function handleDeleteRecords(records) {
+    for (let i = 0; i < records.length; i++) {
+      await api.delete(`/stores/${records[i].id}`).then((res) => {
+        console.log(res);
+      });
+    }
+  }
+
+  async function handleUpdateRecords(records) {
+    for (let i = 0; i < records.length; i++) {
+      const data = {
+        name: records[i].name,
+        address: records[i].address,
+        phone: records[i].phone,
+      };
+      await api.put(`/stores/${records[i].id}`, data).then((res) => {
+        console.log(res);
+      });
     }
   }
 

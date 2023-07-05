@@ -7,7 +7,6 @@ export class DeleteStoreUseCase {
   }
 
   async execute(id) {
-    console.log(id);
     // Validate if store exists
     const storeWithSameId = await this.storesRepository.findById(id);
     if (!storeWithSameId) {
