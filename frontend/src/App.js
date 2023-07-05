@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
-import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
+import { Navbar, Sidebar, ThemeSettings } from "./components";
 import {
   AddProduct,
-  AddStore,
   Checkout,
   Dashboard,
   Inventories,
@@ -21,10 +20,16 @@ import { useStateContext } from "./contexts/contextProvider";
 import "./App.css";
 
 const App = () => {
-  const { activeMenu } = useStateContext();
+  const {
+    activeMenu,
+    themeSettings,
+    setThemeSettings,
+    currentColor,
+    currentMode,
+  } = useStateContext();
 
   return (
-    <div>
+    <div className={currentMode === "Dark" ? "dark" : ""}>
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
           {/* Settings Button */}
@@ -32,9 +37,10 @@ const App = () => {
             <TooltipComponent content="Settings" position="Top">
               <button
                 type="button"
+                onClick={() => setThemeSettings(true)}
                 className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white"
                 style={{
-                  background: "#ed7d31",
+                  background: currentColor,
                   borderRadius: "50%",
                 }}
               >
@@ -56,9 +62,8 @@ const App = () => {
 
           {/* Nav + Main */}
           <div
-            className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${
-              activeMenu ? "md:ml-72" : "flex-2"
-            }`}
+            className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full
+              ${activeMenu ? "md:ml-72" : "flex-2"}`}
           >
             {/* Navbar */}
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
@@ -67,7 +72,10 @@ const App = () => {
 
             {/* main */}
             <div>
-              <ThemeSettings />
+              {/* Theme Settings */}
+              {themeSettings ? <ThemeSettings /> : null}
+
+              {/* Routes */}
               <Routes>
                 {/* Dashboard */}
                 <Route path="/" element={<Dashboard />} />
