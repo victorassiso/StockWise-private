@@ -1,14 +1,21 @@
 import { prisma } from "../../../prisma/prisma-client.js";
 export class PrismaInventoriesRepository {
   async create(data) {
-    const Inventory = await prisma.Inventory.create({
+    const inventory = await prisma.Inventory.create({
       data,
     });
-    return Inventory;
+    return inventory;
   }
 
   async list() {
-    const Inventories = await prisma.Inventory.findMany();
-    return Inventories;
+    const inventories = await prisma.Inventory.findMany();
+    return inventories;
+  }
+
+  async deleteInventoriesByStore(store_id) {
+    const inventories = await prisma.Inventory.deleteMany({
+      where: { store_id },
+    });
+    return inventories;
   }
 }

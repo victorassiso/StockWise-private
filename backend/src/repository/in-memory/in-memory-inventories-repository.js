@@ -19,4 +19,16 @@ export class InMemoryInventoriesRepository {
   async list() {
     return this.inventories;
   }
+
+  async deleteInventoriesByStore(store_id) {
+    var inventoryIndex = this.inventories.findIndex(
+      (inventory) => inventory.store_id === store_id
+    );
+    while (inventoryIndex != -1) {
+      const inventory = this.inventories.splice(inventoryIndex, 1);
+      inventoryIndex = this.inventories.findIndex(
+        (inventory) => inventory.store_id === store_id
+      );
+    }
+  }
 }

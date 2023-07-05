@@ -27,4 +27,21 @@ export class InMemoryStoresRepository {
     }
     return store;
   }
+
+  async findById(id) {
+    const store = this.stores.find((store) => store.id === id);
+    if (!store) {
+      return null;
+    }
+    return store;
+  }
+
+  async delete(id) {
+    const storeIndex = this.stores.findIndex((store) => store.id === id);
+    if (!storeIndex) {
+      return null;
+    }
+    const store = this.stores.splice(storeIndex, 1);
+    return store;
+  }
 }

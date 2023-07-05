@@ -21,4 +21,21 @@ export class PrismaStoresRepository {
 
     return store;
   }
+
+  async findById(id) {
+    const store = await prisma.store.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    return store;
+  }
+
+  async delete(id) {
+    const store = await prisma.store.delete({
+      where: { id },
+    });
+    return store;
+  }
 }
