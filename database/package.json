@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "docker compose up --build"
+    "build": "docker compose up --build",
+    "start": ""
   },
   "author": "",
   "license": "ISC"
