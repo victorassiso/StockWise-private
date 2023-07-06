@@ -25,4 +25,14 @@ export class PrismaInventoriesRepository {
     });
     return inventories;
   }
+
+  async listFormated() {
+    const inventories = await prisma.Inventory.findMany({
+      include: {
+        product: true,
+        store: true,
+      },
+    });
+    return inventories;
+  }
 }
