@@ -55,12 +55,17 @@ const Products = () => {
   }
 
   async function handleUpdateRecords(records) {
+    console.log(records);
+    const Status = {
+      active: "active",
+      inactive: "inactive",
+    };
     for (let i = 0; i < records.length; i++) {
       const data = {
         name: records[i].name,
         price: records[i].price,
         cost: records[i].cost,
-        status: records[i].status,
+        status: Status.active,
         category: records[i].category,
       };
       await api.put(`/products/${records[i].id}`, data).then((res) => {

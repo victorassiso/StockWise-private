@@ -21,4 +21,35 @@ export class PrismaProductsRepository {
 
     return product;
   }
+
+  async findById(id) {
+    const product = await prisma.product.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    return product;
+  }
+
+  async update(id, data) {
+    const product = await prisma.product.update({
+      where: {
+        id,
+      },
+      data,
+    });
+
+    return product;
+  }
+
+  async delete(id) {
+    const product = await prisma.product.delete({
+      where: {
+        id,
+      },
+    });
+
+    return product;
+  }
 }
