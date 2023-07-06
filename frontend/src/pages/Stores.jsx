@@ -8,7 +8,7 @@ const Stores = () => {
   // Data
   const [stores, setStores] = useState(null);
   const { isFetching, refetch } = useQuery(
-    "Stores",
+    "stores",
     async () => {
       const res = await api.get("/stores");
       setStores(res.data.stores);
