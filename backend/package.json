@@ -20,7 +20,7 @@
     "test:w": "vitest",
     "test:c": "vitest --coverage",
     "start": "node src/server.js",
-    "build": "npm i; docker compose up -d"
+    "build": "npm i"
   },
   "repository": {
     "type": "git",
