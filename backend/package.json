@@ -9,11 +9,11 @@
     "zod": "^3.21.4"
   },
   "engines": {
-    "node": "20"
+    "node": "20.3.0"
   },
   "name": "stockwise",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "node --watch src/server.js",
     "test": "vitest run",
