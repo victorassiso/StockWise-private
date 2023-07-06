@@ -4,6 +4,8 @@ WORKDIR /usr/app
 COPY package.json package-lock.json ./
 
 RUN npm install
+RUN npx generate
+RUN npx migrate dev
 
 COPY . .
 
