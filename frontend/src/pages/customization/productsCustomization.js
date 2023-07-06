@@ -2,13 +2,15 @@ import {
   Page,
   Edit,
   Toolbar,
+  Sort,
   // Resize,
   // Filter,
   // Group,
 } from "@syncfusion/ej2-react-grids";
 
 export const gridAttributes = {
-  // allowResizing: true,
+  allowResizing: true,
+  allowSorting: true,
   allowPaging: true,
   pageSettings: { pageSize: 20 },
   editSettings: {
@@ -24,6 +26,7 @@ export const tableServices = [
   Page,
   Edit,
   Toolbar,
+  Sort,
   // Resize,
   // Filter,
   // Group,
@@ -36,6 +39,8 @@ export const columns = [
     headerText: "Id",
     width: "200",
     textAlign: "Left",
+    type: "string",
+    editType: "TextBox",
     allowEditing: false,
   },
   {
@@ -43,6 +48,7 @@ export const columns = [
     headerText: "Name",
     width: "200",
     textAlign: "Left",
+    type: "string",
     editType: "TextBox",
     validationRules: { required: true },
   },
@@ -51,21 +57,28 @@ export const columns = [
     headerText: "Cost",
     width: "100",
     textAlign: "Address",
-    editType: "numericedit",
+    type: "number",
+    validationRules: { required: true },
   },
   {
     field: "price",
     headerText: "Price",
     width: "100",
     textAlign: "Center",
-    editType: "Number",
+    type: "number",
+    validationRules: { required: true },
   },
   {
     field: "status",
     headerText: "Status",
     width: "100",
     textAlign: "Center",
-    editType: "TextBox",
+  },
+  {
+    field: "category",
+    headerText: "Category",
+    width: "100",
+    textAlign: "Center",
   },
   {
     field: "created_at",

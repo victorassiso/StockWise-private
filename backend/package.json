@@ -8,14 +8,19 @@
     "express-async-handler": "^1.2.0",
     "zod": "^3.21.4"
   },
+  "engines": {
+    "node": "20"
+  },
   "name": "stockwise",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node --watch src/server.js",
+    "dev": "node --watch src/server.js",
     "test": "vitest run",
     "test:w": "vitest",
-    "test:c": "vitest --coverage"
+    "test:c": "vitest --coverage",
+    "start": "node src/server.js",
+    "build": "npm i; docker compose up -d"
   },
   "repository": {
     "type": "git",

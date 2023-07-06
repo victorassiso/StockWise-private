@@ -36,6 +36,8 @@ export const columns = [
     headerText: "Id",
     width: "200",
     textAlign: "Left",
+    type: "string",
+    editType: "TextBox",
     allowEditing: false,
   },
   {
@@ -43,6 +45,7 @@ export const columns = [
     headerText: "Name",
     width: "80",
     textAlign: "Left",
+    type: "string",
     editType: "TextBox",
     validationRules: { required: true },
   },
@@ -51,6 +54,7 @@ export const columns = [
     headerText: "Address",
     width: "250",
     textAlign: "Address",
+    type: "string",
     editType: "TextBox",
   },
   {
@@ -58,6 +62,7 @@ export const columns = [
     headerText: "Phone",
     width: "120",
     textAlign: "Center",
+    type: "string",
     editType: "TextBox",
   },
   {

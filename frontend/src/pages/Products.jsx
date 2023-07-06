@@ -4,7 +4,7 @@ import {
   columns,
   tableServices,
   gridAttributes,
-} from "./customization/Products";
+} from "./customization/productsCustomization.js";
 import { api } from "../services/hooks/axios";
 import { useQuery } from "react-query";
 
@@ -24,7 +24,7 @@ const Products = () => {
 
   // Functions
   async function handleChange(props) {
-    console.log(props);
+    console.log("HandleChanges: ", props);
     if (props.batchChanges.addedRecords.length > 0) {
       await handleAddRecords(props.batchChanges.addedRecords);
     }
@@ -38,19 +38,25 @@ const Products = () => {
   }
 
   async function handleAddRecords(records) {
+    console.log("handleAddRecords: ", records);
     for (let i = 0; i < records.length; i++) {
-      console.log(records[i]);
-      await api.post("/products", records[i]).then((res) => {
-        console.log(res);
-      });
+      await api
+        .post("/products", records[i])
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => console.log(error));
     }
   }
 
   async function handleDeleteRecords(records) {
     for (let i = 0; i < records.length; i++) {
-      await api.delete(`/products/${records[i].id}`).then((res) => {
-        console.log(res);
-      });
+      await api
+        .delete(`/products/${records[i].id}`)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => console.log(error));
     }
   }
 
@@ -68,9 +74,12 @@ const Products = () => {
         status: Status.active,
         category: records[i].category,
       };
-      await api.put(`/products/${records[i].id}`, data).then((res) => {
-        console.log(res);
-      });
+      await api
+        .put(`/products/${records[i].id}`, data)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => console.log(error));
     }
   }
 

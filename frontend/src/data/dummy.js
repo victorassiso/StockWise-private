@@ -559,11 +559,11 @@ export const links = [
         name: "products",
         icon: <TbPackages />,
       },
-      {
-        showName: "Add Product",
-        name: "add-product",
-        icon: <LuPackagePlus />,
-      },
+      // {
+      //   showName: "Add Product",
+      //   name: "add-product",
+      //   icon: <LuPackagePlus />,
+      // },
       {
         showName: "Inventory",
         name: "inventories",

@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Header, Table } from "../components";
-import { columns, tableServices, gridAttributes } from "./customization/Stores";
+import {
+  columns,
+  tableServices,
+  gridAttributes,
+} from "./customization/storesCustomization.js";
 import { api } from "../services/hooks/axios";
 import { useQuery } from "react-query";
 
