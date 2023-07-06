@@ -18,4 +18,11 @@ export class PrismaInventoriesRepository {
     });
     return inventories;
   }
+
+  async deleteInventoriesByProduct(product_id) {
+    const inventories = await prisma.Inventory.deleteMany({
+      where: { product_id },
+    });
+    return inventories;
+  }
 }
