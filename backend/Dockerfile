@@ -1,6 +1,6 @@
 FROM node:20.3.0 AS builder
 
-WORKDIR /usr/app
+WORKDIR /app
 COPY package*.json ./
 COPY prisma ./prisma/
 
