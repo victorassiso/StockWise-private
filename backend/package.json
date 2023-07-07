@@ -19,7 +19,7 @@
     "test": "vitest run",
     "test:w": "vitest",
     "test:c": "vitest --coverage",
-    "start": "node src/server.js",
+    "start": "node src/server.js; npx prisma migrate deploy",
     "build": "npm i"
   },
   "repository": {
