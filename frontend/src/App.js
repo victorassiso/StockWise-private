@@ -18,6 +18,7 @@ import {
 } from "./pages";
 import { useStateContext } from "./contexts/contextProvider";
 import "./App.css";
+import path from "path";
 
 const App = () => {
   const {
