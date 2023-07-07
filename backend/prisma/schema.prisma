@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = "postgres://admin:95M8lGgUkmTO3WrW1Sh7UeBMFrJHJBx2@dpg-cijnmrp8g3nc2gbo7nh0-a.ohio-postgres.render.com/stockwisedb?schema=public"
 }
 
 model Store {
