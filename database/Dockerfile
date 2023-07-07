@@ -2,6 +2,10 @@ FROM bitnami/postgresql
 
 WORKDIR /usr/app
 
+ENV POSTGRESQL_USER docker
+ENV POSTGRESQL_PASSWORD docker
+ENV POSTGRESQL_DATABASE postgres_db
+
 COPY . .
 
 EXPOSE 3333
